@@ -69,7 +69,7 @@ public class Controller {
             //number in list / sum of list * 360 for degrees in circle
             double percentageOfPie = ((double)purchasesByAgeGroup[i]/sum)*360;
 
-            gc.fillArc(w/2, h/3, 150, 150, previousAngle, percentageOfPie, ArcType.ROUND);
+            gc.fillArc(w/1.8, h/3, 125, 125, previousAngle, percentageOfPie, ArcType.ROUND);
             //So the next part of the pie graph starts where the last one left off.
             previousAngle += percentageOfPie;
         }
@@ -93,10 +93,11 @@ public class Controller {
                 minVal = val;
         }
 
-        //starting position, 0 to x. left to right
-        double x = 0;
         //width of canvas / number of bars. so the bar graph fits
         double barWidth = w / commercialData.length;
+
+        //starting position, 0 to x. left to right
+        double x = barWidth;
 
         //iterating through data set
         for (double val : commercialData) {
@@ -129,7 +130,7 @@ public class Controller {
         //width of canvas / number of bars. so the bar graph fits
         barWidth = w / housingData.length;
 
-        x = -barWidth/2;
+        x = (barWidth/2) +2;
         for (double val : housingData) {
             //scaling value is, sum of commerical data / sum of housing data
             //the proportion that commericaldata is larger than housing data
