@@ -1,0 +1,71 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.MenuBar?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Region?>
+<GridPane fx:controller="sample.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="45" vgap="0">
+    <TableView fx:id="tableView"
+               GridPane.columnIndex="0"
+               GridPane.columnSpan="1"
+               GridPane.hgrow="ALWAYS"
+               GridPane.vgrow="ALWAYS"
+               GridPane.rowIndex="1" >
+        <columns>
+            <TableColumn fx:id="studentID" text="SID" minWidth="90" maxWidth="Infinity"/>
+            <TableColumn fx:id="assignmentMark" text="Assignments" minWidth="120" maxWidth="Infinity"/>
+            <TableColumn fx:id="midtermMark" text="Midterm" minWidth="100" maxWidth="Infinity"/>
+            <TableColumn fx:id="finalExamMark" text="Final Exam" minWidth="130" maxWidth="Infinity"/>
+            <TableColumn fx:id="finalMark" text="Final Mark" minWidth="100" maxWidth="Infinity"/>
+            <TableColumn fx:id="letterGrade" text="Letter Grade" minWidth="130" maxWidth="Infinity"/>
+        </columns>
+    </TableView>
+
+    <MenuBar fx:id="menuBar" focusTraversable="true" GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <Menu text="File">
+            <items>
+                <MenuItem text="New" fx:id = "new" onAction="#clearTable"/>
+                <MenuItem text="Open" fx:id = "open" onAction="#open"/>
+                <MenuItem text="Save" fx:id = "save" onAction="#save"/>
+                <MenuItem text="Save As" fx:id = "saveAs" onAction="#saveAs"/>
+                <MenuItem text="Exit" fx:id = "exit" onAction="#exit"/>
+            </items>
+        </Menu>
+    </MenuBar>
+
+    <HBox spacing = "10"  alignment="bottom_left" GridPane.columnIndex="0" GridPane.rowIndex="2"
+          GridPane.hgrow="ALWAYS"
+          GridPane.vgrow="ALWAYS">
+        <Text text="SID:" />
+        <Region prefHeight="1" prefWidth="20"/>
+        <TextField fx:id="SID" promptText="SID"/>
+
+        <Text text="Assignments:"/>
+        <TextField fx:id="assignment" promptText="assignments/100"/>
+    </HBox>
+
+    <HBox spacing = "10"  alignment="bottom_left" GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <Text text="Midterm:" />
+        <TextField fx:id="midterm" promptText="Midterm/100"/>
+
+        <Text text="Final Exam:"/>
+        <Region prefHeight="1" prefWidth="2"/>
+        <TextField fx:id="exam" promptText="Final Exam/100"/>
+    </HBox>
+
+    <HBox spacing = "10"  alignment="bottom_left" GridPane.columnIndex="0" GridPane.rowIndex="4">
+        <Region prefHeight="1" prefWidth="60" />
+        <Button text="Add" onAction="#addRecord" alignment="BOTTOM_LEFT"/>
+    </HBox>
+</GridPane>
