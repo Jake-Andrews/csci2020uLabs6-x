@@ -1,28 +1,26 @@
-package sample;
+package client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-
 public class Main extends Application {
-
+    static Controller controller;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Lab 8");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
 
-        primaryStage.setScene(new Scene(root, 660, 600));
+        Parent root = loader.load();
+        controller = (Controller)loader.getController();
+
+        primaryStage.setTitle("Lab 10 - Client");
+        primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        //System.out.println(args[0]);
         launch(args);
     }
 }
